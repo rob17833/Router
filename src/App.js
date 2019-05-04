@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Switch, Route} from 'react-router-dom';
+import Home from './Home/index';
+import History from './History/index';
+import {NavLink} from 'react-router-dom';
 
 function App() {
   return (
@@ -19,7 +23,17 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+      <ul>
+        <li><NavLink activeClassName="active" exact to="/">Acceuil</NavLink></li>
+        <li><NavLink activeClassName="active" to="/notre-histoire">History</NavLink></li>
+      </ul>
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/notre-histoire" component={History}/>
+      </Switch>
+    </div> 
+
+
   );
 }
 
